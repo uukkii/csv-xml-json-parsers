@@ -7,6 +7,7 @@ import com.opencsv.bean.CsvToBean;
 import com.opencsv.bean.CsvToBeanBuilder;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -17,7 +18,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.lang.reflect.Type;
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -127,7 +127,7 @@ public class Main {
             for (Object object : jsonArray) {
                 list.add(gson.fromJson(object.toString(), Employee.class));
             }
-        } catch (org.json.simple.parser.ParseException e) {
+        } catch (ParseException e) {
             e.printStackTrace();
         }
         return list;
